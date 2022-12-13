@@ -1,0 +1,27 @@
+<a [routerLink]="[ '/add']" class="btn btn-success">Add new</a>
+<div class="container">
+    <table class="table table-light">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let product of products, let idx = index">
+                <td>{{ product.id }}</td>
+
+                <td><a [routerLink]="[ product.id + '/show']">{{ product.name }}</a></td>
+                <td>{{ product.price }}</td>
+                <td>
+                    <a [routerLink]="[product.id + '/edit']" class="btn btn-warning">Edit</a> |
+                    <a [routerLink]="[product.id + '/delete']" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
